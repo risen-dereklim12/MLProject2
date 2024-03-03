@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from decision_tree import DecisionTree
 from random_forest import RandomForest
+from logistic_regression import LogRegression
 
 data = pd.read_csv("data/cleaned_data.csv")
 
@@ -30,7 +31,22 @@ def decision_tree():
     dt.confusion_matrix(X_test, y_test)
     dt.predict(X_test, y_test)
 
-#creating an object of the RandomForest class
-rf = RandomForest()
-rf.fit(X_train, y_train, X_test, y_test)
-rf.predict(X_train, y_train, X_test, y_test)
+def random_forest():
+    #creating an object of the RandomForest class
+    rf = RandomForest()
+    rf.fit(X_train, y_train, X_test, y_test)
+    rf.predict(X_train, y_train, X_test, y_test)
+
+def log_regression():
+    #creating an object of the LogRegression class
+    clf = LogRegression()
+    clf.fit(X_train, y_train, X_test, y_test)
+
+input = input("Enter 1 for Decision Tree, 2 for Random Forest, 3 for Logistic Regression: ")
+if input == '1':
+     decision_tree()
+elif input == '2':
+     random_forest()
+elif input == '3':
+     log_regression()
+
