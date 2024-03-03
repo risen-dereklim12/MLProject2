@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from decision_tree import DecisionTree
 from random_forest import RandomForest
 
 data = pd.read_csv("data/cleaned_data.csv")
@@ -22,8 +23,11 @@ print ("Shape of X_test = ",X_test.shape)
 print ("Shape of Y_test = ",y_test.shape)
 
 #creating an object of the RandomForest class
+dt = DecisionTree()
+dt.fit(X_train, y_train, X_test, y_test)
+dt.cross_val(X_train, y_train)
+dt.confusion_matrix(X_test, y_test)
+dt.predict(X_test, y_test)
+
+#creating an object of the RandomForest class
 rf = RandomForest()
-rf.fit(X_train, y_train, X_test, y_test)
-rf.cross_val(X_train, y_train)
-rf.confusion_matrix(X_test, y_test)
-rf_predict = rf.predict(X_test, y_test)
