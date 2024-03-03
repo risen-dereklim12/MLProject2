@@ -22,12 +22,15 @@ print ("Shape of y_train = ",y_train.shape)
 print ("Shape of X_test = ",X_test.shape)
 print ("Shape of Y_test = ",y_test.shape)
 
-#creating an object of the RandomForest class
-dt = DecisionTree()
-dt.fit(X_train, y_train, X_test, y_test)
-dt.cross_val(X_train, y_train)
-dt.confusion_matrix(X_test, y_test)
-dt.predict(X_test, y_test)
+def decision_tree():
+    #creating an object of the Decision Tree class
+    dt = DecisionTree()
+    dt.fit(X_train, y_train, X_test, y_test)
+    dt.cross_val(X_train, y_train)
+    dt.confusion_matrix(X_test, y_test)
+    dt.predict(X_test, y_test)
 
 #creating an object of the RandomForest class
 rf = RandomForest()
+rf.fit(X_train, y_train, X_test, y_test)
+rf.predict(X_train, y_train, X_test, y_test)
