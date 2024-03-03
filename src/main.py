@@ -4,7 +4,7 @@ from decision_tree import DecisionTree
 from random_forest import RandomForest
 from logistic_regression import LogRegression
 
-data = pd.read_csv("data/cleaned_data.csv")
+data = pd.read_csv("cleaned_data.csv")
 
 Y = data['Lung Cancer Occurrence'] #target variable
 X = data.drop('Lung Cancer Occurrence', axis=1) #contains only the features
